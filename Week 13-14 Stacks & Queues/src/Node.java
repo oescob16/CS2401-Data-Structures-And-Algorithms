@@ -35,7 +35,7 @@ public class Node<T> {
         int size = 0;
         while (iter != null) {
             size++;
-            iter = iter.getNext();
+            iter = iter.getNext(); 
         }
         return size;
     }
