@@ -29,7 +29,7 @@ public class BTNode<T> {
         data = d;   
     }
     
-    public void setLeft(BTNode<T> L) {
+    public void setLeft(BTNode<T> L) { 
         left = L;
     }
     
