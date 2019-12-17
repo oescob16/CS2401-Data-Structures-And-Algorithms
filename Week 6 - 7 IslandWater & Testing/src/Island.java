@@ -37,7 +37,7 @@ public class Island {
 
         while(wrongAnswer){
 
-            System.out.print("\nWrong input!\n");
+            System.out.print("\nWrong input!\n"); 
             System.out.print("Type the " + sizeOrHeight + " you want the island to be: ");
             newInput = scnr.nextInt();
 
