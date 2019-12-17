@@ -13,40 +13,19 @@ public class IslandTesting {
         long start;
         long end = 0;
 
-        //How to use System.currentTimeMillis()? Is mine correct or not?
         for(int i = 0; i < input; i++) {
             heightOfDirt = generatorOfDirtBars();
 
             start = System.currentTimeMillis();
             int water = gettingWater(heightOfDirt);
             end += System.currentTimeMillis() - start;
-
-            //Do I need to display the water collected on each cycle?
-            //System.out.print("\nVolume of Water is: " + water + "\n");
         }
 
-        System.out.print("Average time is: "  + (double)end/input + " ms");       //Is it correct?
+        System.out.print("Average time is: "  + (double)end/input + " ms");      
 
         System.out.println();
-
-        /*System.out.print("Do you want to see its visual representation? [Y/N]: ");
-        char userIn = scnr.next().charAt(0);
-
-        System.out.println();
-
-        switch(userIn){
-            case 'Y':
-            case 'y':
-                visualRepresentation(heightOfDirt);
-            break;
-
-            default:
-            break;
-
-        }*/
     }
 
-    //Should I get the length and height from the user input or by using Math.random() ?
     public static int invalidSizeAndHeight(int wrongInput, String sizeOrHeight){
 
         Scanner scnr = new Scanner(System.in);
@@ -69,21 +48,6 @@ public class IslandTesting {
     public static int[] generatorOfDirtBars(){
 
         Scanner scnr = new Scanner(System.in);
-
-        //Scanners to let the user have the option to choose the length
-        /*System.out.print("\nType the length you want the island to be: ");
-        int inputLength = scnr.nextInt();
-
-        if((inputLength <= 0)){
-            inputLength = invalidLengthAndHeight(inputSize, "length");
-        }
-
-        System.out.print("Type the height you want the island to be: ");
-        int inputHeight = scnr.nextInt();
-
-        if(inputHeight <= 0){
-            inputHeight = invalidLengthAndHeight(inputHeight, "height");
-        }*/
 
         int inputSize = (int) Math.ceil(Math.random() * 10000);
 
@@ -108,7 +72,7 @@ public class IslandTesting {
         int right = island[island.length - 1];
 
         int[] maxBarLeft = new int[island.length];
-        int[] maxBarRight = new int[island.length];                     //FIXME: System.currentMillis();
+        int[] maxBarRight = new int[island.length];                    
 
         for(int i = 1; i < island.length; i++) {
 
@@ -143,27 +107,7 @@ public class IslandTesting {
 
         return waterCollected;
     }
-
-    //Is necessary to create this method or should I erase it?
-    public static void visualRepresentation(int[] island){
-
-        int maxPeak = findMaxPeak(island);
-        int[][] islandIn2D = island2D(island, maxPeak);
-
-        for(int i = 0; i < islandIn2D.length; i++){
-            for(int j = 0; j < islandIn2D[i].length; j++){
-                if(islandIn2D[i][j] == 0){
-                    System.out.print("  ");
-                }
-                else {
-                    System.out.print(islandIn2D[i][j] + " ");
-                }
-            }
-            System.out.println();
-        }
-    }
-
-    //Should I do the same with this one?
+    
     public static int[][] island2D(int[] island1D, int maxPeak){
 
         int[][] imageIsland = new int[maxPeak][island1D.length];
@@ -185,7 +129,6 @@ public class IslandTesting {
         return imageIsland;
     }
 
-    //The same of this one?
     public static int findMaxPeak(int[] bars)
     {
         int largestPeak = Integer.MIN_VALUE;
